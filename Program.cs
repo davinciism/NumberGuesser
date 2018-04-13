@@ -25,8 +25,10 @@ namespace NumberGuesser
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine("{0}:- Version : {1} by {2}", appName, appVersion, author);
+            Console.WriteLine("{0}:- Version : {1} by {2}.", appName, appVersion, author);
             Console.ResetColor();
+            printColorMessage(ConsoleColor.DarkCyan, "Made with Love and Coffee!");
+            Console.WriteLine();
 
         }
         static void greetUser()
@@ -40,7 +42,7 @@ namespace NumberGuesser
         static void rules()
         {
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("You have to guess a number which lies in the range of 1-100.");
+            Console.WriteLine("We have stored a secret number in the range of 1-100. Your task is to guess it!");
             Console.WriteLine("You have 10 chances and we will give you a hint after every chance.");
             Console.ResetColor();
         }
@@ -53,12 +55,10 @@ namespace NumberGuesser
 
             do
             {
-
-
                 Random random = new Random();
                 int correctNumber = random.Next(1, 100);
                 int guess = 0;
-                printColorMessage(ConsoleColor.DarkGreen, "Guess the number.");
+                printColorMessage(ConsoleColor.Yellow, "Guess the number.");
 
                 for (int i = 0; i < 10; i++)
                 {
@@ -74,23 +74,25 @@ namespace NumberGuesser
                     //guess = Int32.Parse(input);
                     if (guess == correctNumber)
                     {
-                        Console.BackgroundColor = ConsoleColor.DarkGray;
                         printColorMessage(ConsoleColor.Green, "Your guess is correct. You won!");
                         break;
                     }
                     if (guess < correctNumber)
                     {
-                        printColorMessage(ConsoleColor.DarkYellow, "Your guess is smaller than the correct answer.");
+                        printColorMessage(ConsoleColor.DarkYellow, "The secret number is greater than "+guess +" .");
                     }
                     if (guess > correctNumber)
                     {
-                        printColorMessage(ConsoleColor.DarkYellow, "Your guess is larger than the correct answer.");
+                        printColorMessage(ConsoleColor.DarkYellow, "The secret number is smaller than "+guess+" .");
                     }
                 }
 
-                Console.BackgroundColor = ConsoleColor.DarkGray;
-                printColorMessage(ConsoleColor.Red, "You lost. Sorry!");
-                Console.WriteLine("Play again?[Y or N]");
+                if (guess != correctNumber)
+                {
+                    printColorMessage(ConsoleColor.Red, "You ran out of chances. Sorry!!");
+                }
+
+                printColorMessage(ConsoleColor.Yellow, "Play again?[Y or N]");
                 answer = Console.ReadLine().ToUpper();
             } while (answer == "Y");
         }
