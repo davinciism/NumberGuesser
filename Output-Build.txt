@@ -1,0 +1,3 @@
+﻿1>------ Build started: Project: NumberGuesser, Configuration: Debug Any CPU ------
+1>  NumberGuesser -> C:\Users\Kuril\source\repos\NumberGuesser\bin\Debug\NumberGuesser.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

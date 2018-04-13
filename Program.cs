@@ -19,15 +19,17 @@ namespace NumberGuesser
         }
         static void appInfo()
         {
-            String appName = "Number Guesser";
+            String appName = "NUMBER GUESSER";
             String appVersion = "1.0.0";
             String author = "Pratik Kuril";
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine("{0}:- Version : {1} by {2}.", appName, appVersion, author);
+            Console.Write(appName);
             Console.ResetColor();
-            printColorMessage(ConsoleColor.DarkCyan, "Made with Love and Coffee!");
+            printColorMessage(ConsoleColor.DarkCyan,"  Version : "+appVersion );
+            Console.ResetColor();
+            printColorMessage(ConsoleColor.DarkCyan, "Made with Love and Coffee by "+author+"!");
             Console.WriteLine();
 
         }
