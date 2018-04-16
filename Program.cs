@@ -20,7 +20,7 @@ namespace NumberGuesser
         static void appInfo()
         {
             String appName = "NUMBER GUESSER";
-            String appVersion = "1.0.0";
+            String appVersion = "1.1.0";
             String author = "Pratik Kuril";
 
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -61,8 +61,8 @@ namespace NumberGuesser
                 int correctNumber = random.Next(1, 100);
                 int guess = 0;
                 printColorMessage(ConsoleColor.Yellow, "Guess the number.");
-
-                for (int i = 0; i < 10; i++)
+                int i;
+                for (i = 1; i <= 10; i++)
                 {
                     String input = Console.ReadLine();
                     if (!int.TryParse(input, out guess)) //If input is not in integer format then =>....
@@ -88,6 +88,7 @@ namespace NumberGuesser
                         printColorMessage(ConsoleColor.DarkYellow, "The secret number is smaller than "+guess+" .");
                     }
                 }
+                printColorMessage(ConsoleColor.DarkGreen, "You took " + i + " chances!");
 
                 if (guess != correctNumber)
                 {
